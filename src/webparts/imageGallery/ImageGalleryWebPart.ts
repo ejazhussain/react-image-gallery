@@ -101,7 +101,7 @@ export default class ImageGalleryWebPart extends BaseClientSideWebPart<IImageGal
                 }),
                 PropertyPaneSlider('pageSize', {
                   label: "Page Size",
-                  min: 5,
+                  min: 2,
                   max: 20,
                   value: 5,
                   showValue: true,

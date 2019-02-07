@@ -14,21 +14,31 @@ export class ListService implements IListService {
         this.spHttpClient = spHttpClient;
     }
 
-    public async readItems(url: string):Promise<any> {
-        try{
+    public async readItems(url: string): Promise<any> {
+        try {
 
             const response = await this.spHttpClient.get(url, SPHttpClient.configurations.v1,
                 {
-                  headers: {
-                    'Accept': 'application/json;odata=nometadata',
-                    'odata-version': ''
-                  }
+                    headers: {
+                        'Accept': 'application/json;odata=nometadata',
+                        'odata-version': ''
+                    }
                 });
 
-                const items: any = await response.json();
+            const items: any = await response.json();
+            let result = {};
+            if (items.value.length) {
 
-                return items.value;
+                result = {
+                    items: items.value,
+                    nextLink: items["odata.nextLink"]
+                }
 
+            }
+            else {
+                result = null;
+            }
+            return result;
 
         }
         catch (error) {
@@ -36,15 +46,15 @@ export class ListService implements IListService {
         }
 
 
-        
-        
-        
-        
-        
 
-        
 
-        
+
+
+
+
+
+
+
 
         // return new Promise<any>(async (resolve) => {
 
@@ -57,28 +67,28 @@ export class ListService implements IListService {
         //         }).then((response: SPHttpClientResponse): Promise<{ value: number }> => {
         //           return response.json();
         //         }).then((response: { value: number }): void => {
-                  
+
         //             resolve(response.value);
         //         });
-            
-        //     });
-       
-      }
 
-    public async getListItemsCount(url: string):Promise<any> {
-        try{
+        //     });
+
+    }
+
+    public async getListItemsCount(url: string): Promise<any> {
+        try {
 
             const response = await this.spHttpClient.get(url, SPHttpClient.configurations.v1,
                 {
-                  headers: {
-                    'Accept': 'application/json;odata=nometadata',
-                    'odata-version': ''
-                  }
+                    headers: {
+                        'Accept': 'application/json;odata=nometadata',
+                        'odata-version': ''
+                    }
                 });
 
-                const result: any = await response.json();
+            const result: any = await response.json();
 
-                return result.value;
+            return result.value;
 
 
         }
@@ -87,15 +97,15 @@ export class ListService implements IListService {
         }
 
 
-        
-        
-        
-        
-        
 
-        
 
-        
+
+
+
+
+
+
+
 
         // return new Promise<any>(async (resolve) => {
 
@@ -108,19 +118,19 @@ export class ListService implements IListService {
         //         }).then((response: SPHttpClientResponse): Promise<{ value: number }> => {
         //           return response.json();
         //         }).then((response: { value: number }): void => {
-                  
+
         //             resolve(response.value);
         //         });
-            
+
         //     });
-       
-      }
 
-    
+    }
 
-   
 
-  
+
+
+
+
 
 }
 
