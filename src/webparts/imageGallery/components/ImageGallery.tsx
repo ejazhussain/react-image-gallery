@@ -346,14 +346,12 @@ export default class ImageGallery extends React.Component<IImageGalleryProps, II
                 <div className={css(styles.row, styles.mainContent)}>
 
                   {result.length > 0 ? result : ""}
-                  {!result.length && this.state.itemsNotFound ? <MessageBar
-                    messageBarType={MessageBarType.warning}
-                    isMultiline={false}
-                    // onDismiss={log('test')}
-                    dismissButtonAriaLabel="Close"
-                  >
-                    Items not found. Try different search keyword
-                  </MessageBar> : ""}
+                  {
+                    // !result.length && this.state.itemsNotFound 
+                    // ? 
+                    // <MessageBar messageBarType={MessageBarType.warning} isMultiline={false}> Items not found. Try different search keyword </MessageBar> 
+                    // : ""
+                  }
                   <Panel
                     isOpen={this.state.showPanel}
                     type={PanelType.medium}                    

@@ -83,9 +83,9 @@ export default class ImageGalleryWebPart extends BaseClientSideWebPart<IImageGal
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
-  protected get disableReactivePropertyChanges(): boolean {
-    return true;
-  }
+  // protected get disableReactivePropertyChanges(): boolean {
+  //   return false;
+  // }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
