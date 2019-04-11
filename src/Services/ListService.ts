@@ -1,9 +1,5 @@
-import { SPHttpClient, SPHttpClientResponse, ISPHttpClientOptions } from '@microsoft/sp-http';
-import { reject } from 'lodash';
-import { IListService, IImage } from '../Interfaces';
-import { sp, spODataEntityArray, Item } from "@pnp/sp";
-import Constants from '../Common/constants';
-import { stringIsNullOrEmpty } from '@pnp/common';
+import { SPHttpClient } from '@microsoft/sp-http';
+import { IListService } from '../Interfaces';
 
 
 export class ListService implements IListService {
@@ -14,7 +10,9 @@ export class ListService implements IListService {
         this.spHttpClient = spHttpClient;
     }
 
-    public async readItems(url: string): Promise<any> {
+    public async readItems(url: string) {
+
+
         try {
 
             const response = await this.spHttpClient.get(url, SPHttpClient.configurations.v1,
@@ -47,15 +45,6 @@ export class ListService implements IListService {
 
 
 
-
-
-
-
-
-
-
-
-
         // return new Promise<any>(async (resolve) => {
 
         //     this.spHttpClient.get(url, SPHttpClient.configurations.v1,
@@ -75,7 +64,7 @@ export class ListService implements IListService {
 
     }
 
-    public async getListItemsCount(url: string): Promise<any> {
+    public async getListItemsCount(url: string) {
         try {
 
             const response = await this.spHttpClient.get(url, SPHttpClient.configurations.v1,

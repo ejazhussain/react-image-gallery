@@ -14,5 +14,6 @@ export interface IImageGalleryState {
     items?: any[];
     status?: string;
     nextLink: string;
+    totalItems:number;
   }
   

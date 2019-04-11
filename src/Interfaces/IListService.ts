@@ -1,5 +1,5 @@
 
 export interface IListService {
-    getListItemsCount:(url:string)=>Promise<any>;
-    readItems:(url:string)=>Promise<any>;
+    getListItemsCount: (url: string) => any;
+    readItems: (url: string) => any;
 }
